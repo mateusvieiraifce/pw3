@@ -7,18 +7,21 @@ const Produto = sequelize.define('Produto', {
         autoIncrement: true,
         primaryKey: true
     },
-    estoqueMinimo:{
-        type: DataTypes.FLOAT, allowNull: true
-    },
     name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    preco:{
-        type: DataTypes.FLOAT, allowNull: false
+    preco: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    estoqueMinimo: {
+        type: DataTypes.FLOAT,
+        allowNull: true
     }
-    }, {
-    timestamps: false // Cria campos createdAt e updatedAt automaticamente
+}, {
+    tableName: 'Produtos',
+    timestamps: false
 });
 
 // Sincronizar o modelo com o banco de dados

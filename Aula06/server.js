@@ -7,7 +7,6 @@ const Venda = require("./models/Venda.js")
 const ItemVenda = require("./models/ItemVenda.js");
 const UserController = require('./controllers/UserController.js');
 const VendaController = require('./controllers/VendaController.js');
-const ClienteController = require('./controllers/ClienteController.js');
 
 
 Venda.belongsTo(User, { foreignKey: 'idUser' });
@@ -35,6 +34,12 @@ app.use("/v1/", require("./routes/UserRoutes.js"))
 app.use("/v1/", require("./routes/VendaRoutes.js"))
 app.use("/v1/", require("./routes/ClienteRoutes.js"))
 
+// ROTAS DO PRODUTOCONTROLLER
+app.get('/v1/produtos', ProdutoController.listAll);
+app.get('/v1/produtos/:id', ProdutoController.getById);
+app.post('/v1/produtos', ProdutoController.create);
+app.put('/v1/produtos/:id', ProdutoController.update);
+app.delete('/v1/produtos/:id', ProdutoController.delete);
 
 // Sample route
 app.get('/', (req, res) => {
